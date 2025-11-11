@@ -1,0 +1,321 @@
+#test-container {
+    max-width: 700px;
+    margin: 3rem auto 2rem auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    background: rgba(255,255,255,0.7);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.typing-test-logo {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.2rem auto;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));
+}
+
+/* Time selection buttons */
+.time-selection {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.time-btn {
+    padding: 8px 22px;
+    border: 2px solid #ddd;
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.time-btn:hover {
+    border-color: #007aff;
+    color: #007aff;
+    background: rgba(0,122,255,0.08);
+}
+
+.time-btn.active {
+    background: linear-gradient(90deg, #007aff 60%, #00c6fb 100%);
+    color: #fff;
+    border-color: #007aff;
+    box-shadow: 0 4px 16px rgba(0,122,255,0.13);
+}
+
+/* Words display */
+#words {
+    font-size: 2.1rem;
+    line-height: 2.3;
+    margin-bottom: 1.7rem;
+    height: 180px;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    font-family: 'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;
+    letter-spacing: 1.5px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 12px 10px;
+    border: 1px solid #e0e0e0;
+}
+
+#words .word {
+    display: inline-block;
+    margin: 0 8px 0 0;
+    position: relative;
+}
+
+#words .word.active {
+    opacity: 1;
+}
+
+#words .word:not(.active) {
+    opacity: 0.4;
+}
+
+#words .char {
+    color: #666;
+    position: relative;
+    transition: color 0.1s;
+}
+
+#words .char.correct {
+    color: #28a745;
+}
+
+#words .char.incorrect {
+    color: #dc3545;
+}
+
+#words .char.cursor {
+    animation: blink 1s infinite;
+}
+
+#words .char.cursor::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #007aff;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+#words .word.word-correct {
+    opacity: 0.5;
+}
+
+#words .word.word-incorrect {
+    opacity: 0.5;
+}
+
+/* Input box */
+#input-box {
+    width: 100%;
+    padding: 1.1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.7rem;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;
+    text-align: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 12px rgba(0,122,255,0.08);
+    background: rgba(255,255,255,0.85);
+}
+
+#input-box:focus {
+    outline: none;
+    border-color: #007aff;
+    box-shadow: 0 4px 16px rgba(0,122,255,0.18);
+}
+
+#input-box:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+/* Stats display */
+#stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    gap: 20px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 10px 0;
+}
+
+#stats > div {
+    text-align: center;
+    padding: 1.1rem 0.5rem;
+    background: linear-gradient(90deg, #f9f9f9 60%, #e0eaff 100%);
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(0,122,255,0.07);
+    position: relative;
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+}
+
+#stats > div strong {
+    display: block;
+    font-size: 2.2rem;
+    color: #007aff;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* Restart button */
+#restart-btn {
+    padding: 14px 44px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    background: linear-gradient(90deg, #007aff 60%, #00c6fb 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.2s;
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgba(0,122,255,0.13);
+}
+
+#restart-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(0, 122, 255, 0.18);
+}
+
+#restart-btn:active {
+    transform: translateY(0) scale(1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #test-container {
+        padding: 1.2rem 0.5rem;
+    }
+    #words {
+        font-size: 1.2rem;
+        height: 120px;
+        padding: 8px 4px;
+    }
+    #input-box {
+        font-size: 1.1rem;
+        padding: 0.7rem;
+    }
+    #stats {
+        flex-direction: column;
+        gap: 10px;
+        padding: 6px 0;
+    }
+    .time-selection {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #words {
+        font-size: 1rem;
+        line-height: 1.7;
+        padding: 4px 2px;
+    }
+    #input-box {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+    }
+    #stats > div strong {
+        font-size: 1.2rem;
+    }
+}
+
+/* Progress bar */
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #007aff 60%, #00c6fb 100%);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    z-index: 2;
+    transition: width 0.3s;
+    box-shadow: 0 2px 8px rgba(0,122,255,0.08);
+}
+
+/* Motivational quote */
+.motivational-quote {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #007aff;
+    text-align: center;
+    background: rgba(0,122,255,0.07);
+    border-radius: 8px;
+    padding: 10px 18px;
+    box-shadow: 0 2px 8px rgba(0,122,255,0.04);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark mode (auto) */
+@media (prefers-color-scheme: dark) {
+    body, #test-container {
+        background: rgba(24,24,32,0.85) !important;
+        color: #e0e0e0 !important;
+    }
+    #words {
+        background: rgba(32,32,48,0.7);
+        color: #e0e0e0;
+        border-color: #222;
+    }
+    #input-box {
+        background: rgba(32,32,48,0.85);
+        color: #e0e0e0;
+        border-color: #222;
+    }
+    #stats {
+        background: rgba(32,32,48,0.6);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    #stats > div {
+        background: linear-gradient(90deg, #222 60%, #333 100%);
+        color: #e0eaff;
+    }
+    .progress-bar {
+        background: linear-gradient(90deg, #00c6fb 60%, #007aff 100%);
+    }
+    .motivational-quote {
+        background: rgba(0,122,255,0.18);
+        color: #e0eaff;
+    }
+}

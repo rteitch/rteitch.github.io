@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips Belajar Efektif - Rteitch</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">
+            <strong>Rteitch</strong>
+        </div>
+        <nav class="main-nav">
+            <a href="../index.html">Home</a>
+            <a href="../#articles">Articles</a>
+        </nav>
+        <div class="system-icons">
+            <span id="time">10:10</span>
+        </div>
+    </header>
+    <main class="content">
+        <section class="window active">
+            <div class="title-bar">
+                <div class="buttons">
+                    <div class="close"></div>
+                    <div class="minimize"></div>
+                    <div class="maximize"></div>
+                </div>
+                <div class="title">Tips Belajar Efektif</div>
+            </div>
+            <div class="window-content">
+                <h1>Tips Belajar Efektif</h1>
+                <p>Belajar efektif adalah kunci untuk meraih hasil maksimal dalam waktu yang terbatas. Berikut beberapa tips yang bisa kamu terapkan:</p>
+                <ol>
+                    <li><strong>Tentukan Tujuan Belajar</strong><br>Mulailah dengan menetapkan tujuan yang jelas agar proses belajar lebih terarah.</li>
+                    <li><strong>Gunakan Teknik Pomodoro</strong><br>Belajar dalam interval 25 menit, lalu istirahat 5 menit untuk menjaga fokus.</li>
+                    <li><strong>Catat Poin Penting</strong><br>Buat ringkasan atau mindmap agar materi lebih mudah diingat.</li>
+                    <li><strong>Belajar di Tempat Nyaman</strong><br>Pilih lingkungan yang minim distraksi agar konsentrasi terjaga.</li>
+                    <li><strong>Evaluasi dan Refleksi</strong><br>Setelah belajar, evaluasi pemahaman dan refleksi apa yang sudah dipelajari.</li>
+                </ol>
+                <blockquote style="margin-top:2rem; font-style:italic; color:#007aff; background:#f0f8ff; border-radius:8px; padding:12px;">"Belajar bukan tentang seberapa lama, tapi seberapa efektif dan konsisten kamu melakukannya."</blockquote>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Update time in header
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            if (timeElement) {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                timeElement.textContent = `${hours}:${minutes}`;
+            }
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rteitch</title>
+    <title>Rteitch - Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,17 +12,23 @@
             <strong>Rteitch</strong>
         </div>
         <nav class="main-nav">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#tools">Tools</a>
+            <a href="#articles">Articles</a>
+
         </nav>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <div class="system-icons">
             <span id="time">10:10</span>
         </div>
     </header>
 
     <main class="content">
-        <section id="about" class="window">
+        <section id="home" class="window active">
             <div class="title-bar">
                 <div class="buttons">
                     <div class="close"></div>
@@ -31,55 +37,91 @@
                 </div>
                 <div class="title">About Me</div>
             </div>
-            <div class="window-content">
-                <h1>Welcome to My Digital Space</h1>
-                <p>I'm Rteitch, a passionate developer and tech enthusiast. This is my personal website, designed with a clean, macOS-inspired aesthetic. Explore my projects and feel free to get in touch.</p>
+            <div class="window-content about-content">
+                <div class="about-me-header">
+                    <img src="img/profile.jpg" alt="Rizal Taufiq Hidayat" class="profile-pic">
+                    <div class="bio">
+                        <h1>Rizal Taufiq Hidayat</h1>
+                        <p>Entry-level IT Support professional. Proficient in customer service, ticketing, systems and learning new technology. Highly motivated with multidisciplinary skills. Enthusiastic in conducting research and analyzing problems and solutions, coordinating and collaborating in a IT teams.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="projects" class="window">
+
+
+        <section id="tools" class="window">
             <div class="title-bar">
                 <div class="buttons">
                     <div class="close"></div>
                     <div class="minimize"></div>
                     <div class="maximize"></div>
                 </div>
-                <div class="title">Projects</div>
+                <div class="title">Online Tools</div>
             </div>
             <div class="window-content">
-                <h2>My Work</h2>
-                <div class="project-grid">
-                    <div class="project-item">
-                        <h3>Project One</h3>
-                        <p>A brief description of the first project. What it does, the technology used, and a link to it.</p>
+                                    <div id="tools-grid" class="project-grid">
+                    </div>            </div>
+        </section>
+
+        <section id="articles" class="window">
+            <div class="title-bar">
+                <div class="buttons">
+                    <div class="close"></div>
+                    <div class="minimize"></div>
+                    <div class="maximize"></div>
+                </div>
+                <div class="title">Articles</div>
+            </div>
+            <div class="window-content">
+                <div id="articles-grid" class="project-grid">
+                    <div class="project-card">
+                        <h3>Contoh Artikel: Tips Belajar Efektif</h3>
+                        <p>Bagaimana cara belajar yang efektif dan menyenangkan? Artikel ini membahas strategi belajar modern, teknik fokus, dan tips agar pembelajaran lebih produktif.</p>
+                        <a href="artikel/tips-belajar-efektif.html" target="_blank">Baca Selengkapnya</a>
                     </div>
-                    <div class="project-item">
-                        <h3>Project Two</h3>
-                        <p>A brief description of the second project. What it does, the technology used, and a link to it.</p>
-                    </div>
-                    <div class="project-item">
-                        <h3>Project Three</h3>
-                        <p>A brief description of the third project. What it does, the technology used, and a link to it.</p>p>
-                    </div>
+                    <!-- Tambahkan artikel baru di bawah sini dengan format yang sama -->
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact" class="dock">
+    <div class="dock">
+        <div class="dock-item" data-section="home">
+            <a href="#home" class="dock-link">
+                <div class="dock-icon">👤</div>
+                <span>About</span>
+            </a>
+        </div>
+        <div class="dock-item" data-section="tools">
+            <a href="#tools" class="dock-link">
+                <div class="dock-icon">🔧</div>
+                <span>Tools</span>
+            </a>
+        </div>
+        <div class="dock-item" data-section="articles">
+            <a href="#articles" class="dock-link">
+                <div class="dock-icon">📝</div>
+                <span>Articles</span>
+            </a>
+        </div>
         <div class="dock-item">
-            <a href="https://github.com/rteitch" target="_blank">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+            <a href="https://github.com/rteitch" target="_blank" class="dock-link">
+                <div class="dock-icon">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                </div>
                 <span>GitHub</span>
             </a>
         </div>
         <div class="dock-item">
-             <a href="mailto:your-email@example.com">
-                <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email">
-                <span>Email</span>
+            <a href="https://www.linkedin.com/in/rizalth/" target="_blank" class="dock-link">
+                <div class="dock-icon">
+                    <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-512.png" alt="LinkedIn">
+                </div>
+                <span>LinkedIn</span>
             </a>
         </div>
-    </footer>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
