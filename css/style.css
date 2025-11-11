@@ -1,0 +1,200 @@
+:root {
+    --background-color: #f6f6f6;
+    --window-bg-color: #ffffff;
+    --text-color: #333333;
+    --title-bar-color: #e8e8e8;
+    --dock-bg-color: rgba(255, 255, 255, 0.7);
+    --border-radius: 8px;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo strong {
+    font-weight: 600;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.main-nav a:hover {
+    background-color: #e0e0e0;
+}
+
+.system-icons {
+    font-weight: 500;
+}
+
+.content {
+    flex: 1;
+    padding: 50px 20px 100px; /* Top padding for fixed top-bar, bottom for dock */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.window {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--window-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.window:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 30px;
+    background-color: var(--title-bar-color);
+    border-bottom: 1px solid #ddd;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.buttons div {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background-color: #ff5f57; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #28c940; }
+
+.title {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    padding-right: 50px; /* Offset for buttons */
+}
+
+.window-content {
+    padding: 20px;
+}
+
+.window-content h1, .window-content h2 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+.dock {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 8px;
+    background-color: var(--dock-bg-color);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.dock-item {
+    margin: 0 8px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.dock-item:hover {
+    transform: translateY(-10px);
+}
+
+.dock-item a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.dock-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dock-item span {
+    font-size: 12px;
+    display: none; /* Hidden by default, can be shown on hover if desired */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* Simple hiding for mobile, can be replaced with a hamburger menu */
+    }
+
+    .content {
+        padding: 50px 10px 100px;
+    }
+
+    .dock-item img {
+        width: 40px;
+        height: 40px;
+    }
+}
